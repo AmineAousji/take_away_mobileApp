@@ -23,26 +23,6 @@ class _LoginPageState extends State<LoginPage> {
   final UserService userService = UserService();
 
 
-  /*void loginUser(String login, String password) {
-    final user = User(login: login, password: password);
-    print(user.login + ' ' + user.password);
-
-    userService.check().then((checkedUser) {
-      if (checkedUser != null) {
-        userService.login(user).then((data) {
-          print(data.token);
-          SharedPreferences.getInstance().then((prefs) async {
-            await prefs.setString('token', data.token);
-            print(await SharedPreferences.getInstance());
-          });
-          Navigator.push(context, MaterialPageRoute(builder: (context) => HomePage()));
-        });
-      } else {
-        print("User not found");
-      }
-    });
-  }*/
-
 
   @override
   Widget build(BuildContext context) {
@@ -107,9 +87,7 @@ class _LoginPageState extends State<LoginPage> {
                             if (_formKey.currentState!.validate()) {
                               try{
 
-                                final response = userService.tryLogin(usernameController.text, passwordController.text);
-                                // print(response);
-                                // final response2 = userService.checkUserName("postman");
+                                final response = userService.checkLogin(usernameController.text, passwordController.text);
                                 response.then((value) => Navigator.push(context, MaterialPageRoute(builder: (context) => HomePage())));
                               }
                               catch (e) {

@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:take_away_app/views/dashboard.dart';
+import 'package:take_away_app/views/loginPage.dart';
 
-import '/views/loginPage.dart';
 
-/// Flutter code sample for [BottomNavigationBar].
+
 
 void main() {
   runApp(const MyApp());
@@ -15,9 +16,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: LoginPage(),
+      home: HomePage(),
       theme: ThemeData.light(),
       darkTheme:ThemeData.dark(),
     );
   }
 }
+
+

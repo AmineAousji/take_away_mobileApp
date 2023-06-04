@@ -21,8 +21,7 @@ class UserService {
     }
   }
 
-  Future<User> tryLogin(String login, String password) async {
-
+  Future<User> checkLogin(String login, String password) async {
     print(login);
     print(password);
     final response = await httpService.post('/check',
