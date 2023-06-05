@@ -24,11 +24,36 @@ class CoursierService {
   }
 
   void addCoursiers(Map<String, dynamic> coursier) async{
-    //print(coursier.name);
     try {
       var response = await Dio().post('$baseUrl/coursiers/', data: coursier);
       if (response.statusCode == 200) {
         print('Coursier has been added');
+      } else {
+        print(response.statusCode);
+      }
+    } catch (e) {
+      print(e);
+    }
+  }
+
+  void modifyCoursiers(int coursier_id, Map<String, dynamic> coursier) async{
+    try {
+      var response = await Dio().put('$baseUrl/coursiers/$coursier_id', data: coursier);
+      if (response.statusCode == 200) {
+        print('Coursier has been modified');
+      } else {
+        print(response.statusCode);
+      }
+    } catch (e) {
+      print(e);
+    }
+  }
+
+  void deleteCoursiers(int coursier_id, Map<String, dynamic> coursier) async{
+    try {
+      var response = await Dio().delete('$baseUrl/coursiers/$coursier_id', data: coursier);
+      if (response.statusCode == 200) {
+        print('Coursier has been deleted');
       } else {
         print(response.statusCode);
       }

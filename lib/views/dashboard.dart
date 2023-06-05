@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:take_away_app/models/categoriesModel.dart';
 import 'package:take_away_app/views/coursierPage.dart';
 import 'package:take_away_app/views/newCoursierPage.dart';
+import 'package:take_away_app/views/newOrderPage.dart';
 import 'package:take_away_app/views/ordersPage.dart';
 import '../services/categoryService.dart';
 
@@ -74,7 +75,10 @@ class _HomePageState extends State<HomePage> {
                 Expanded(
                   child: ElevatedButton(
                     onPressed: () {
-
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => const NewOrderPage()),
+                      );
                     },
                     child: const Text('Add an Order'),
                   ),
@@ -103,9 +107,7 @@ class _HomePageState extends State<HomePage> {
             ListTile(
               title: const Text('Coursiers'),
               onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => CoursierPage()),
+                Navigator.push(context, MaterialPageRoute(builder: (context) => CoursierPage()),
                 );
               },
             ),

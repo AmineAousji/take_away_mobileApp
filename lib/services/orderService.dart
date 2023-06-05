@@ -24,6 +24,32 @@ class OrderService {
     return jsonList;
   }
 
+  void addOrders(Map<String, dynamic> order) async{
+    try {
+      var response = await Dio().post('$baseUrl/orders/', data: order);
+      if (response.statusCode == 200) {
+        print('The order has been added');
+      } else {
+        print(response.statusCode);
+      }
+    } catch (e) {
+      print(e);
+    }
+  }
+  void assignOrder(Map<String, dynamic> order, int coursier_id, int order_id ) async{
+    try {
+      var response = await Dio().put('$baseUrl/orders/$order_id/assign/$coursier_id', data: order);
+      if (response.statusCode == 200) {
+        print('The order has been assigned');
+      } else {
+        print(response.statusCode);
+      }
+    } catch (e) {
+      print(e);
+    }
+
+  }
+
 
 }
 
