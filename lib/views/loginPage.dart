@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
-import '../api.dart';
-import '../models/userModel.dart';
 import 'dashboard.dart';
 import '../services/userService.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -26,10 +23,6 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   Widget build(BuildContext context) {
-    // final login = usernameController.text = "";
-    // final password = passwordController.text = "";
-    // final user = User(login: login, password: password);
-
 
     return Scaffold(
         appBar: AppBar(
