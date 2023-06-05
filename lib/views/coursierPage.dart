@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:take_away_app/services/coursierService.dart';
+import 'package:take_away_app/views/modifyCoursierPage.dart';
 
 class CoursierPage extends StatefulWidget {
   const CoursierPage({Key? key}) : super(key: key);
@@ -92,14 +93,21 @@ class _CoursierPageState extends State<CoursierPage> {
                       children: <Widget>[
                         IconButton(
                           onPressed: () {
-                            // Handle edit button tap
+                            bool modifyOrDelete = true;
+                            Navigator.push(context, MaterialPageRoute(
+                              builder: (context) => ModifyCoursierPage(coursierData: data[index], modifyOrDelete: modifyOrDelete,)),
+                            );
+
                           },
-                          icon: Icon(Icons.edit),
+                          icon: const Icon(Icons.edit),
                         ),
-                        SizedBox(width: 20.0), // Add some space between the buttons
+                        const SizedBox(width: 20.0), // Add some space between the buttons
                         IconButton(
                           onPressed: () {
-                            // Handle delete button tap
+                            bool modifyOrDelete = false;
+                            Navigator.push(context, MaterialPageRoute(
+                                builder: (context) => ModifyCoursierPage(coursierData: data[index], modifyOrDelete: modifyOrDelete,)),
+                            );
                           },
                           icon: Icon(Icons.delete),
                         ),

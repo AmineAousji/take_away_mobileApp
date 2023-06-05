@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:take_away_app/services/orderService.dart';
+import 'package:take_away_app/views/assignOrderPage.dart';
 
 class OrdersPage extends StatefulWidget {
   const OrdersPage({Key? key}) : super(key: key);
@@ -107,18 +108,35 @@ class _OrdersPageState extends State<OrdersPage> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: <Widget>[
+
                         IconButton(
                           onPressed: () {
-                            // Handle edit button tap
+
                           },
-                          icon: Icon(Icons.edit),
+                          icon: const Icon(Icons.edit),
                         ),
-                        SizedBox(width: 20.0), // Add some space between the buttons
+                        const SizedBox(width: 20.0),
                         IconButton(
                           onPressed: () {
-                            // Handle delete button tap
+
                           },
-                          icon: Icon(Icons.delete),
+                          icon: const Icon(Icons.delete),
+                        ),
+                        const SizedBox(width: 20.0),
+                        ElevatedButton(
+                          onPressed:  data[index]['coursier_id'] != null ? null : () {
+                            Navigator.push(context, MaterialPageRoute(builder: (context) => AssignOrderPage(orderData: data[index])),
+                            );
+                          },
+                          style: ElevatedButton.styleFrom(
+                            primary: Colors.white,
+                          ),
+                          child: const Text(
+                            'Assign',
+                            style: TextStyle(
+                              color: Colors.black,
+                            ),
+                          ),
                         ),
                       ],
                     ),
