@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:take_away_app/views/coursierPage.dart';
 import 'package:take_away_app/views/dashboard.dart';
 import 'package:take_away_app/views/loginPage.dart';
 
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: HomePage(),
+      home: LoginPage(),
       theme: ThemeData.light(),
       darkTheme:ThemeData.dark(),
     );

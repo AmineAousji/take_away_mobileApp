@@ -4,15 +4,15 @@ import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:dio/dio.dart';
 
 
-class CategoryService {
+class OrderService {
   final String baseUrl = Link.API_URL;
   final storage = const FlutterSecureStorage();
   final HttpService httpService = HttpService();
   var jsonList;
 
-  dynamic getCategories() async {
+  dynamic getOrders() async {
     try {
-      var response = await Dio().get('http://192.168.56.1:3000/api/categories/list');
+      var response = await Dio().get('http://192.168.56.1:3000/api/orders/list');
       if (response.statusCode == 200) {
         jsonList = await response.data;
       } else {
@@ -24,15 +24,6 @@ class CategoryService {
     return jsonList;
   }
 
-  void getData() async {
-    try {
-      var response = await Dio()
-          .get('$baseUrl/categories/list');
-      print(response);
-    } catch (e) {
-      print(e);
-    }
-  }
 
 }
 
