@@ -151,8 +151,10 @@ class _NewCoursierPageState extends State<NewCoursierPage> {
                   };
                   coursiersService.addCoursiers(newCoursier);
                 }
+                Navigator.pop(context);
               },
               child: const Text('Add a Coursier'),
+
             ),
               ],
             ),
