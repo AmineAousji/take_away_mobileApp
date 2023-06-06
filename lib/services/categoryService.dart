@@ -26,12 +26,27 @@ class CategoryService {
 
   void getData() async {
     try {
-      var response = await Dio()
-          .get('$baseUrl/categories/list');
+      var response = await Dio().get('$baseUrl/categories/list');
       print(response);
     } catch (e) {
       print(e);
     }
+  }
+
+  dynamic getCourisersBycategry(String categoryName) async {
+    try {
+
+      var response = await Dio().get('$baseUrl/categories/$categoryName/coursiers');
+
+      if (response.statusCode == 200) {
+        jsonList = await response.data;
+      } else {
+        print(response.statusCode);
+      }
+    } catch (e) {
+      print(e);
+    }
+    return jsonList;
   }
 
 }

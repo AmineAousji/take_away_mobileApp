@@ -134,7 +134,7 @@ class _NewOrderPageState extends State<NewOrderPage> {
                         'name_customer': nameCustomerController.text,
                         'name_restaurant': nameRestaurantController.text,
                         'adress_customer': addressCustomerController.text,
-                        'adress_restaurant': addressCustomerController.text,
+                        'adress_restaurant': addressRestaurantController.text,
                         'price': priceController.text,
                         'distance': distanceController.text,
 

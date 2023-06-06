@@ -40,4 +40,18 @@ class UserService {
       throw Exception('Failed to login');
     }
   }
+
+
+  void addUser(Map<String, dynamic> user) async{
+    try {
+      var response = await Dio().post('$baseUrl/users/', data: user);
+      if (response.statusCode == 200) {
+        print('A new user is added');
+      } else {
+        print(response.statusCode);
+      }
+    } catch (e) {
+      print(e);
+    }
+  }
 }
